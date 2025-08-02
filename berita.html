@@ -2,7 +2,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Jadwal Pertandingan - TH CUP V 2025</title>
+  <title>Berita TH CUP V 2025</title>
   <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600&display=swap" rel="stylesheet">
   <style>
     body {
@@ -11,30 +11,36 @@
       color: white;
       padding: 1rem;
     }
-    h1, h2 {
+    h1 {
       text-align: center;
       color: #00ff88;
       text-shadow: 1px 1px 5px #000;
     }
-    .jadwal {
-      margin-bottom: 3rem;
+    .berita-container {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      margin-top: 2rem;
     }
-    table {
-      width: 100%;
-      border-collapse: collapse;
+    .berita {
       background: rgba(255, 255, 255, 0.05);
+      padding: 1rem;
       border-radius: 10px;
-      overflow: hidden;
-      box-shadow: 0 0 10px rgba(0,255,136,0.3);
+      box-shadow: 0 0 8px rgba(0,255,136,0.3);
     }
-    th, td {
-      padding: 10px;
-      text-align: center;
-      border-bottom: 1px solid rgba(255,255,255,0.1);
+    .berita h2 {
+      color: #00ff88;
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
     }
-    th {
-      background: #00ff88;
-      color: black;
+    .berita img {
+      width: 100%;
+      border-radius: 8px;
+      margin: 0.5rem 0;
+    }
+    .berita p {
+      font-size: 1.1rem;
+      color: #ccc;
     }
     footer {
       margin-top: 3rem;
@@ -44,25 +50,49 @@
   </style>
 </head>
 <body>
-  <h1>Jadwal Pertandingan - TH CUP V 2025</h1>  <div class="jadwal">
-    <h2>Fase Grup</h2>
-    <table>
-      <tr><th>Tanggal</th><th>Waktu</th><th>Tim 1</th><th>VS</th><th>Tim 2</th><th>Grup</th></tr>
-      <tr><td>5 Agustus</td><td>08:00</td><td>Gonapur FC</td><td>vs</td><td>Birru FC</td><td>A</td></tr>
-      <tr><td>5 Agustus</td><td>09:00</td><td>LIBAS FC</td><td>vs</td><td>Gonapur FC</td><td>A</td></tr>
-      <tr><td>5 Agustus</td><td>10:00</td><td>Birru FC</td><td>vs</td><td>LIBAS FC</td><td>A</td></tr>
-      <!-- Tambahkan jadwal lainnya -->
-    </table>
-  </div>  <div class="jadwal">
-    <h2>Babak Knockout</h2>
-    <table>
-      <tr><th>Tanggal</th><th>Waktu</th><th>Tim 1</th><th>VS</th><th>Tim 2</th><th>Babak</th></tr>
-      <tr><td>7 Agustus</td><td>14:00</td><td>Juara Grup A</td><td>vs</td><td>Runner-up Grup B</td><td>Semifinal 1</td></tr>
-      <tr><td>7 Agustus</td><td>15:00</td><td>Juara Grup B</td><td>vs</td><td>Runner-up Grup A</td><td>Semifinal 2</td></tr>
-      <tr><td>8 Agustus</td><td>16:00</td><td>Pemenang SF1</td><td>vs</td><td>Pemenang SF2</td><td>Final</td></tr>
-    </table>
-  </div>  <footer>
-    &copy; 2025 TH CUP V. Jadwal dapat berubah sesuai kondisi lapangan.
+  <h1>Berita Turnamen</h1>  <div class="berita-container" id="beritaList">
+    <!-- Berita akan ditampilkan di sini via JavaScript -->
+  </div>  <script>
+    const beritaList = [
+      {
+        judul: "Gonapur FC Tampil Gemilang di Laga Pembuka!",
+        gambar: "https://via.placeholder.com/600x300.png?text=Gonapur+Menang",
+        isi: "Gonapur FC sukses membuka turnamen dengan kemenangan besar atas Birru FC. Skor akhir 4-1 menjadi modal berharga menuju laga kedua."
+      },
+      {
+        judul: "Pertarungan Sengit Grup A!",
+        gambar: "https://via.placeholder.com/600x300.png?text=Grup+A+Panas",
+        isi: "LIBAS FC berhasil menahan imbang Gonapur FC dalam duel ketat. Grup A semakin seru!"
+      }
+    ];
+
+    const container = document.getElementById("beritaList");
+    beritaList.forEach(b => {
+      const div = document.createElement("div");
+      div.className = "berita";
+      div.innerHTML = `
+        <h2>${b.judul}</h2>
+        <img src="${b.gambar}" alt="${b.judul}" />
+        <p>${b.isi}</p>
+      `;
+      container.appendChild(div);
+    });
+  </script>  
+  <div style="text-align: center; margin: 2rem 0;">
+  <a href="index.html" style="
+    background-color: #00ff88;
+    color: #000;
+    padding: 10px 20px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: bold;
+    box-shadow: 0 0 10px #00ff88;
+  ">
+    ⬅ Kembali ke Beranda
+  </a>
+  </div>
+  <footer>
+    &copy; 2025 TH CUP V - Berita & highlight pertandingan.
   </footer>
 </body>
-  </html>
+</html>
